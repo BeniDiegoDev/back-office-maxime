@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Bebas+Neue&display=swap');
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  /* overflow-x: scroll; */
 }
 
-a {
-  color: #00B7FF;
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
 }
