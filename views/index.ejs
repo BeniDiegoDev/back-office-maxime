@@ -7,9 +7,16 @@
 </head>
 
 <body>
-  <div class="Home">
+  <div class="home">
     <h1>Back Office du Portfolio de Maxime Turpault</h1>
-    <h2>Seul le propriètaire du Portfolio aura les accés nécessaire à ce back office</1>
+    <h2>Seul le propriètaire du Portfolio aura les accés nécessaire à ce back office</h2>
+      <div class="signin">
+        <form action="users/sign-in" method="post">
+          <div class="champs"><input class="input" type="text" name="userFromFront" placeholder="Utilisateur" required></div>
+          <div class="champs"><input class="input" type="password" name="passwordFromFront" placeholder="Mot de passe" required></div>
+          <div class="champs"><button class="btn" type="submit">Valider</button></div>
+        </form>
+      </div>
   </div>
 </body>
 
