@@ -8,15 +8,20 @@
 
 <body>
   <div class="home">
-    <h1>Back Office du Portfolio de Maxime Turpault</h1>
-    <h2>Seul le propriètaire du Portfolio aura les accés nécessaire à ce back office</h2>
-      <div class="signin">
-        <form action="users/sign-in" method="post">
-          <div class="champs"><input class="input" type="text" name="userFromFront" placeholder="Utilisateur" required></div>
-          <div class="champs"><input class="input" type="password" name="passwordFromFront" placeholder="Mot de passe" required></div>
-          <div class="champs"><button class="btn" type="submit">Valider</button></div>
-        </form>
-      </div>
+    <h1 class="title">API du Portfolio de Maxime Turpault</h1>
+    <div class="signin">
+      <form action="users/signin" method="post">
+        <div class="champs"><input class="input" type="text" name="userFromFront" placeholder="Utilisateur" required>
+        </div>
+        <div class="champs"><input class="input" type="password" name="passwordFromFront" placeholder="Mot de passe"
+            required></div>
+        <div class="champs"><button class="btn" type="submit">Valider</button></div>
+      </form>
+    </div>
+  </div>
+  <div class="bottombar">
+    <div class="bottomg">Créé par Benjamin D'ONOFRIO</div>
+    <div class="bottomd">Copyright © 2022 BD.js</div>
   </div>
 </body>
 

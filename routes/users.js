@@ -6,8 +6,8 @@ var uid2 = require("uid2");
 var photoModel = require('../models/photoModel')
 var userModel = require('../models/userModel')
 
-/* ROUTE SIGN-IN */
-router.post('/sign-in', async function(req, res, next) {
+/* ROUTE SIGNIN */
+router.post('/signin', async function(req, res, next) {
 
     var userName = req.body.userFromFront;
     var password = req.body.passwordFromFront;
@@ -18,7 +18,7 @@ router.post('/sign-in', async function(req, res, next) {
         req.session.user = {
           token: user.token,
         }
-        res.redirect('/home')
+        res.redirect('/home');
       } else {
         res.redirect('/')
       }
@@ -27,5 +27,11 @@ router.post('/sign-in', async function(req, res, next) {
     }
   
   });
+
+/* ROUTE LOGOUT */
+router.get('/logout', function(req,res,next){
+  req.session.user = null;
+  res.redirect('/')
+});
 
 module.exports = router;

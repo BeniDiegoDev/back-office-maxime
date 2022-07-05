@@ -19,9 +19,9 @@ router.get('/home', async function(req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
-  res.render('home');
+    var user = await userModel.find(req.session.user);
+  res.render('home', { firstName: user[0].firstName });
   }
-  console.log(req.session.user);
 });
 
 module.exports = router;
