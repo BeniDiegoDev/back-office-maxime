@@ -103,4 +103,11 @@ router.post('/importphoto', async function (req, res, next) {
   res.json({ photoSave });
 });
 
+router.get('/recupphoto', async function (req, res, next) {
+
+  var photos = await photoModel.find();
+
+  res.json({ photos })
+});
+
 module.exports = router;
