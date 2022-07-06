@@ -63,3 +63,4 @@ typings/
 # infos confidentielles
 models/connexion.js
 routes/profil.js
+.env
