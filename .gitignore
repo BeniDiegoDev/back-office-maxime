@@ -61,6 +61,5 @@ typings/
 .next
 
 # infos confidentielles
-models/connexion.js
-routes/profil.js
-.env
+# models/connexion.js
+# routes/profil.js
