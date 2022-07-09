@@ -7,25 +7,42 @@
 </head>
 
 <body>
-  <div class="logout">
-    <a class="logouttext" href="./users/logout">Déconnexion</a>
-  </div>
-  <div class="menu">
-    <ul class="listmenu">
-      <li>Menu 1 </li>
-      <li>Menu 2 </li>
-      <li>Menu 3 </li>
-      <li>Menu 4 </li>
-    </ul>
-  </div>
-  <div class="home">
-    <h1>Connecté au Back Office</h1>
-    <h2>Bienvenue <%= firstName %></h2>
-  </div>
-  <div class="bottombar">
-    <div class="bottomg">Créé par Benjamin D'ONOFRIO</div>
-    <div class="bottomd">Copyright © 2022 BD.js</div>
-  </div>
+  <header>
+    <nav>
+      <div class="menu">
+        <ul class="listmenu">
+          <li>
+            <a class="menutext" href="./home">Accueil Back Office</a>
+          </li>
+          <li>
+            <a class="menutext" href="./presentation">Gestion de la présentation</a>
+          </li>
+          <li>
+            <a class="menutext" href="./galerie">Gestion de la galerie</a>
+          </li>
+          <li>
+            <a class="menutext" href="./contact">Gestion des contacts</a>
+          </li>
+          <li>
+              <a class="logouttext" href="./users/logout">Déconnexion</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="home">
+      <h1>Connecté au Back Office</h1>
+      <h2>Bienvenue <%= firstName %>
+      </h2>
+    </div>
+  </main>
+  <footer>
+    <div class="bottombar">
+      <div class="bottomg">Créé par Benjamin D'ONOFRIO</div>
+      <div class="bottomd">Copyright © 2022 BD.js</div>
+    </div>
+  </footer>
 </body>
 
 </html>

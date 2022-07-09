@@ -14,13 +14,43 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-/* ROUTE GET HOMEPAGE */
+/* ROUTE GET HOME */
 router.get('/home', async function(req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
     var user = await userModel.find(req.session.user);
   res.render('home', { firstName: user[0].firstName });
+  }
+});
+
+/* ROUTE GET PRESENTATION */
+router.get('/presentation', async function(req, res, next) {
+  if (req.session.user == null) {
+    res.redirect('/');
+  } else {
+    var user = await userModel.find(req.session.user);
+  res.render('presentation', { firstName: user[0].firstName });
+  }
+});
+
+/* ROUTE GET GALERIE */
+router.get('/galerie', async function(req, res, next) {
+  if (req.session.user == null) {
+    res.redirect('/');
+  } else {
+    var user = await userModel.find(req.session.user);
+  res.render('galerie', { firstName: user[0].firstName });
+  }
+});
+
+/* ROUTE GET CONTACT */
+router.get('/contact', async function(req, res, next) {
+  if (req.session.user == null) {
+    res.redirect('/');
+  } else {
+    var user = await userModel.find(req.session.user);
+  res.render('contact', { firstName: user[0].firstName });
   }
 });
 
