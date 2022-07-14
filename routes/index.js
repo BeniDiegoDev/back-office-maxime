@@ -20,7 +20,7 @@ router.get('/home', async function(req, res, next) {
     res.redirect('/');
   } else {
     var user = await userModel.find(req.session.user);
-  res.render('home', { firstName: user[0].firstName });
+  res.render('home', { user });
   }
 });
 
@@ -30,7 +30,7 @@ router.get('/presentation', async function(req, res, next) {
     res.redirect('/');
   } else {
     var user = await userModel.find(req.session.user);
-  res.render('presentation', { firstName: user[0].firstName });
+  res.render('presentation', { user });
   }
 });
 
@@ -40,7 +40,9 @@ router.get('/galerie', async function(req, res, next) {
     res.redirect('/');
   } else {
     var user = await userModel.find(req.session.user);
-  res.render('galerie', { firstName: user[0].firstName });
+    var galerie = await photoModel.find();
+    console.log(galerie);
+  res.render('galerie', { user, galerie });
   }
 });
 
@@ -50,7 +52,7 @@ router.get('/contact', async function(req, res, next) {
     res.redirect('/');
   } else {
     var user = await userModel.find(req.session.user);
-  res.render('contact', { firstName: user[0].firstName });
+  res.render('contact', { user });
   }
 });
 

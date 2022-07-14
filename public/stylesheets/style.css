@@ -7,8 +7,12 @@ html {
 
 body {
   padding: 0;
-  margin: 0;
+  margin: 0;  
   font-family: 'Barlow Condensed', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 h1 {
@@ -25,12 +29,6 @@ h1 {
   justify-content: center;
   text-align: center;
 }
-
-/* .logout {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-} */
 
 .logouttext {
   text-decoration: none;
@@ -86,6 +84,7 @@ h1 {
 }
 
 .bottombar {
+  background-color: white;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -125,4 +124,31 @@ h1 {
 .listmenu li {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.galerie {
+  margin-left: 200px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.galerie-item {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.galerie-image {
+  height: 200px;
+}
+
+.galerie-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 5px;
 }
