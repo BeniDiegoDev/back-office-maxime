@@ -11,11 +11,12 @@
 </head>
 
 <body>
+    <%- include('addphoto'); %>    
     <%- include('header'); %>
         <main>
             <div class="galerie">
                 <div class="add-galerie">
-                    <a class="galerie-tool">
+                    <a class="galerie-tool" id="addPhoto">
                         <i class="fas fa-plus" style="margin-right: 0.5rem;"></i>Ajouter une photo à la galerie
                     </a>
                 </div>
@@ -36,7 +37,7 @@
                                 <a class="galerie-tool">
                                     <i class="fas fa-edit" style="margin-right: 0.5rem;"></i>Editer
                                 </a>
-                                <a class="galerie-tool">
+                                <a class="galerie-tool" href="/deletephoto?id=<%=galerie[i].id%>">
                                     <i class="fas fa-times" style="margin-right: 0.5rem;"></i>Supprimer
                                 </a>
                             </div>
@@ -46,6 +47,7 @@
             </div>
         </main>
         <%- include('footer'); %>
+        <script src="../javascripts/addphoto.js"></script>
 </body>
 
 </html>

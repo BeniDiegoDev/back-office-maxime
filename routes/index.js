@@ -7,7 +7,7 @@ var photoModel = require('../models/photoModel')
 var userModel = require('../models/userModel')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   if (!req.session.user) {
     req.session.user = null;
   }
@@ -15,44 +15,82 @@ router.get('/', function(req, res, next) {
 });
 
 /* ROUTE GET HOME */
-router.get('/home', async function(req, res, next) {
+router.get('/home', async function (req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
     var user = await userModel.find(req.session.user);
-  res.render('home', { user });
+    res.render('home', { user });
   }
 });
 
 /* ROUTE GET PRESENTATION */
-router.get('/presentation', async function(req, res, next) {
+router.get('/presentation', async function (req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
     var user = await userModel.find(req.session.user);
-  res.render('presentation', { user });
+    res.render('presentation', { user });
   }
 });
 
 /* ROUTE GET GALERIE */
-router.get('/galerie', async function(req, res, next) {
+router.get('/galerie', async function (req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
     var user = await userModel.find(req.session.user);
     var galerie = await photoModel.find();
-    console.log(galerie);
-  res.render('galerie', { user, galerie });
+    // console.log(galerie);
+    res.render('galerie', { user, galerie });
   }
 });
 
+/* ROUTE ADD PHOTO GALERIE */
+router.post('/addphoto', async function (req, res, next) {
+  
+    var searchPhoto = await photoModel.findOne({
+      name: req.body.nameFromFront
+    })
+
+    if (!searchPhoto) {
+      var newPhoto = new photoModel({
+        name: req.body.nameFromFront,
+        categorie: req.body.categorieFromFront,
+        img: req.body.imgFromFront,
+        miniatures: req.body.miniaturesFromFront,
+      })
+
+      console.log(newPhoto);
+
+      var newPhotoSave = await newPhoto.save();
+
+      console.log(newPhotoSave);
+
+      res.redirect('/galerie');
+    } else {
+      var alert = "Photo déjà existante";
+      res.json(alert);
+    }
+});
+
+/* ROUTE DELETE PHOTO GALERIE */
+router.get('/deletephoto', async function (req, res, next) {
+
+  await photoModel.deleteOne({
+    _id: req.query.id
+  });
+
+  res.redirect('/galerie');
+});
+
 /* ROUTE GET CONTACT */
-router.get('/contact', async function(req, res, next) {
+router.get('/contact', async function (req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
     var user = await userModel.find(req.session.user);
-  res.render('contact', { user });
+    res.render('contact', { user });
   }
 });
 
