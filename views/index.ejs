@@ -10,22 +10,21 @@
 </head>
 
 <body>
-  <div class="home">
-    <h1 class="title">API du Portfolio de Maxime Turpault</h1>
-    <div class="signin">
-      <form action="users/signin" method="post">
-        <div class="champs"><input class="input" type="text" name="userFromFront" placeholder="Utilisateur" required>
-        </div>
-        <div class="champs"><input class="input" type="password" name="passwordFromFront" placeholder="Mot de passe"
-            required></div>
-        <div class="champs"><button class="btn" type="submit">Valider</button></div>
-      </form>
+  <main>
+    <div class="home">
+      <h1 class="title">API du Portfolio de Maxime Turpault</h1>
+      <div class="signin">
+        <form action="users/signin" method="post">
+          <div class="champs"><input class="input" type="text" name="userFromFront" placeholder="Utilisateur" required>
+          </div>
+          <div class="champs"><input class="input" type="password" name="passwordFromFront" placeholder="Mot de passe"
+              required></div>
+          <div class="champs"><button class="btn" type="submit">Valider</button></div>
+        </form>
+      </div>
     </div>
-  </div>
-  <div class="bottombar">
-    <div class="bottomg">Créé par Benjamin D'ONOFRIO</div>
-    <div class="bottomd">Copyright © 2022 BD.js</div>
-  </div>
+  </main>
+  <%- include('footer'); %>
 </body>
 
 </html>
