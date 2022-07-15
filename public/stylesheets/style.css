@@ -20,9 +20,17 @@ h1 {
   padding: 0;
 }
 
+h1:hover {
+  cursor: default;
+}
+
+p:hover {
+  cursor: default;
+}
+
 .home {
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,6 +119,7 @@ h1 {
   position: fixed;
   top: 0px;
   left: 10px;
+  z-index: 1000;
 }
 
 .listmenu {
@@ -131,24 +140,74 @@ h1 {
   padding-bottom: 50px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+.add-galerie {
+  background-color: white;
+  width: 100vw;
+  height: 40px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 500;
+}
+
+.galerie-items {
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding-top: 40px;
 }
 
 .galerie-item {
-  margin: 10px;
+  width: 300px;
+  margin: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .galerie-image {
   height: 200px;
+  border-radius: 10px;
+}
+
+.galerie-infos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
 }
 
 .galerie-text {
   font-size: 1.2rem;
   font-weight: bold;
   margin: 5px;
+}
+
+.galerie-tools {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.galerie-tool {
+  font-weight: bold;
+}
+
+.galerie-tool:hover {
+  cursor: pointer;
 }
