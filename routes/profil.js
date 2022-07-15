@@ -5,6 +5,7 @@ var uid2 = require("uid2");
 
 var photoModel = require('../models/photoModel')
 var userModel = require('../models/userModel')
+var presentationModel = require('../models/presentationModel')
 
 router.post('/importprofil', async function (req, res, next) {
 
@@ -87,7 +88,7 @@ router.post('/importphoto', async function (req, res, next) {
     { categorie: 'Portraits', name: 'Surveillant A', img: 'https://res.cloudinary.com/dktfcexev/image/upload/v1656696129/Portfolio%20Maxime%20Turpault/Portraits/Surveillant.a_je6q4q.jpg', miniatures: 'https://res.cloudinary.com/dktfcexev/image/upload/v1656696981/Portfolio%20Maxime%20Turpault/Portraits/Miniatures/Surveillant.a_kwjiui.jpg' },
     { categorie: 'Portraits', name: 'Surveillant B', img: 'https://res.cloudinary.com/dktfcexev/image/upload/v1656696129/Portfolio%20Maxime%20Turpault/Portraits/Surveillant.b_j398hx.jpg', miniatures: 'https://res.cloudinary.com/dktfcexev/image/upload/v1656696981/Portfolio%20Maxime%20Turpault/Portraits/Miniatures/Surveillant.c_lgk9bg.jpg' },
     { categorie: 'Portraits', name: 'Surveillant C', img: 'https://res.cloudinary.com/dktfcexev/image/upload/v1656696129/Portfolio%20Maxime%20Turpault/Portraits/Surveillant.c_amuqww.jpg', miniatures: 'https://res.cloudinary.com/dktfcexev/image/upload/v1656696981/Portfolio%20Maxime%20Turpault/Portraits/Miniatures/Surveillant.b_zgrhfv.jpg' },
-    ]
+  ]
 
   for (let i = 0; i < photos.length; i++) {
     var newPhoto = new photoModel({
@@ -108,6 +109,36 @@ router.get('/recupphoto', async function (req, res, next) {
   var photos = await photoModel.find();
 
   res.json({ photos })
+});
+
+
+router.post('/importpresentation', async function (req, res, next) {
+
+  var presentations = [{
+    photo: "https://res.cloudinary.com/dktfcexev/image/upload/v1656714403/Portfolio%20Maxime%20Turpault/Pr%C3%A9sentation/Miniature/DSC_9706_oipomz.jpg",
+    presentation: "Je suis Maxime Turpault. Photographe et retoucheur en freelance, basé en Ile de France. Étudiant à l'école des Gobelins en Bachelor photo et vidéo",
+    description: "Je suis passionné d'images depuis toujours, je vous invites à découvrir mon travail sur mon portfolio. Mes photographies ont un objectif artistique, ainsi que tous mes projets concernant l'image.",
+  }]
+
+  for (let i = 0; i < presentations.length; i++) {
+
+    var newPresentation = new presentationModel({
+      photo: presentations[i].photo,
+      presentation: presentations[i].presentation,
+      description: presentations[i].description,
+    });
+  }
+
+  var presentationSave = await newPresentation.save();
+
+  res.json({ presentationSave });
+});
+
+router.get('/recuppresentation', async function (req, res, next) {
+
+  var presentation = await presentationModel.find();
+
+  res.json({ presentation })
 });
 
 module.exports = router;

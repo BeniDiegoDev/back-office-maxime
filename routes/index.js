@@ -5,6 +5,7 @@ var uid2 = require("uid2");
 
 var photoModel = require('../models/photoModel')
 var userModel = require('../models/userModel')
+var presentationModel = require('../models/presentationModel')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -29,8 +30,8 @@ router.get('/presentation', async function (req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
-    var user = await userModel.find(req.session.user);
-    res.render('presentation', { user });
+    var presentation = await presentationModel.find();
+    res.render('presentation', { presentation });
   }
 });
 
@@ -39,10 +40,9 @@ router.get('/galerie', async function (req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
-    var user = await userModel.find(req.session.user);
     var galerie = await photoModel.find();
     // console.log(galerie);
-    res.render('galerie', { user, galerie });
+    res.render('galerie', { galerie });
   }
 });
 
@@ -50,7 +50,7 @@ router.get('/galerie', async function (req, res, next) {
 router.post('/addphoto', async function (req, res, next) {
   
     var searchPhoto = await photoModel.findOne({
-      name: req.body.nameFromFront
+      name: req.body.nameFromFront,
     })
 
     if (!searchPhoto) {
@@ -69,8 +69,7 @@ router.post('/addphoto', async function (req, res, next) {
 
       res.redirect('/galerie');
     } else {
-      var alert = "Photo déjà existante";
-      res.json(alert);
+      
     }
 });
 
@@ -89,8 +88,7 @@ router.get('/contact', async function (req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
-    var user = await userModel.find(req.session.user);
-    res.render('contact', { user });
+    res.render('contact');
   }
 });
 

@@ -7,13 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back Office du Portfolio de Maxime Turpault</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://kit.fontawesome.com/a41e9403cf.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <%- include('header'); %>
         <main>
-            <div class="home">
-                <h2>Gestion de la présentation</h2>
+            <div class="presentation">
+                <h1>Gestion de la présentation</h1>
+                <div class="presentation-content">
+                    <img class="galerie-image" src="<%= presentation[0].photo %>" alt="Maxime Turpault" />
+                    <p class="presentation-text">
+                        <%= presentation[0].presentation %>
+                    </p>
+                </div>
+                <div class="presentation-desc">
+                    <p class="galerie-text">
+                        <%= presentation[0].description %>
+                    </p>
+                </div>
+                <div class="presentation-tools">
+                    <a class="presentation-tool">
+                        <i class="fas fa-edit" style="margin-right: 0.5rem;"></i>Ėditer la présentation
+                    </a>
+                </div>
             </div>
         </main>
         <%- include('footer'); %>
