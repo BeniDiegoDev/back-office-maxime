@@ -1,0 +1,26 @@
+<div id="modalPresentation" class="modal">
+    
+    <div class="modal-content">
+        <div class="btn-close">
+            <a class="closebtn">
+                <i class="fas fa-times" style="margin-right: 0.5rem;"></i>Fermer
+            </a>
+        </div>
+        
+        <form>
+            <div class="champs">
+                <input class="input" type="text" name="photoFromFront" value="<%= presentation[0].photo %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="presentationFromFront" value="<%= presentation[0].presentation %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="descriptionFromFront" value="<%= presentation[0].description %>" required>
+            </div>
+            <div class="champs">
+                <button class="btn" type="submit">Valider</button>
+            </div>
+        </form>
+    </div>
+
+</div>

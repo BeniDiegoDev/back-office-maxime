@@ -41,7 +41,7 @@ router.get('/galerie', async function (req, res, next) {
     res.redirect('/');
   } else {
     var galerie = await photoModel.find();
-    // console.log(galerie);
+
     res.render('galerie', { galerie });
   }
 });
@@ -61,11 +61,7 @@ router.post('/addphoto', async function (req, res, next) {
         miniatures: req.body.miniaturesFromFront,
       })
 
-      console.log(newPhoto);
-
-      var newPhotoSave = await newPhoto.save();
-
-      console.log(newPhotoSave);
+      await newPhoto.save();
 
       res.redirect('/galerie');
     } else {

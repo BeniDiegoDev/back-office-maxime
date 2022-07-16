@@ -255,14 +255,14 @@ p:hover {
   justify-content: flex-end;
 }
 
-.close {
+.closebtn {
   color: #6e6e6e;
   font-weight: bold;
   font-size: 1.3rem;
   text-decoration: none;
 }
 
-.close:hover {
+.closebtn:hover {
   color: black;
   cursor: pointer;
 }
