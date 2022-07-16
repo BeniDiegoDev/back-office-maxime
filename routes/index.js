@@ -35,6 +35,24 @@ router.get('/presentation', async function (req, res, next) {
   }
 });
 
+router.get('/updatepresentation', async function (req, res, next) {
+  var presentationList = await presentationModel.find();
+
+  for (var i = 0; i < presentationList.length; i++) {
+
+    await presentationModel.updateOne({
+      _id: req.query.idFromFront,
+    }, {
+      photo: req.query.photoFromFront,
+      presentation: req.query.presentationFromFront,
+      description: req.query.descriptionFromFront,      
+    });
+
+  };
+
+  res.redirect('/presentation');
+});
+
 /* ROUTE GET GALERIE */
 router.get('/galerie', async function (req, res, next) {
   if (req.session.user == null) {
@@ -79,13 +97,62 @@ router.get('/deletephoto', async function (req, res, next) {
   res.redirect('/galerie');
 });
 
+router.get('/updatephoto', async function (req, res, next) {
+  var photoList = await photoModel.find();
+
+  for (var i = 0; i < photoList.length; i++) {
+
+    await photoModel.updateOne({
+      _id: req.query.idFromFront,
+    }, {
+      name: req.query.nameFromFront,
+      categorie: req.query.categorieFromFront,
+      img: req.query.imgFromFront,
+      miniatures: req.query.miniaturesFromFront,
+    });
+
+  };
+
+  res.redirect('/galerie');
+});
+
 /* ROUTE GET CONTACT */
 router.get('/contact', async function (req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
-    res.render('contact');
+    
+    var user = await userModel.findOne({
+      user: "admin",
+    })
+
+    res.render('contact', { user });
   }
+});
+
+router.get('/updatecontact', async function (req, res, next) {
+  var contactList = await userModel.find();
+
+  for (var i = 0; i < contactList.length; i++) {
+
+    await userModel.updateOne({
+      _id: req.query.idFromFront,
+    }, {
+      firstName: req.query.firstNameFromFront,
+      lastName: req.query.lastNameFromFront,
+      society: req.query.societyFromFront,
+      email: req.query.emailFromFront,
+      emailPro: req.query.emailProFromFront,
+      phoneNumber: req.query.phoneNumberFromFront,
+      web: req.query.webFromFront,
+      instagram: req.query.instagramFromFront,
+      facebook: req.query.facebookFromFront,
+      
+    });
+
+  };
+
+  res.redirect('/contact');
 });
 
 module.exports = router;

@@ -1,0 +1,47 @@
+<div id="modalContact" class="modal">
+    
+    <div class="modal-content">
+        <div class="btn-close">
+            <a class="closebtn">
+                <i class="fas fa-times" style="margin-right: 0.5rem;"></i>Fermer
+            </a>
+        </div>
+        
+        <form action="updatecontact" method="get">
+            <div class="champs">
+                <input hidden class="input" type="text" name="idFromFront" value="<%= user.id %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="firstNameFromFront" value="<%= user.firstName %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="lastNameFromFront" value="<%= user.lastName %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="societyFromFront" value="<%= user.society %>">
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="emailFromFront" value="<%= user.email %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="emailProFromFront" value="<%= user.emailPro %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="phoneNumberFromFront" value="<%= user.phoneNumber %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="webFromFront" value="<%= user.web %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="instagramFromFront" value="<%= user.instagram %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="facebookFromFront" value="<%= user.facebook %>" required>
+            </div>
+            <div class="champs">
+                <button class="btn" type="submit">Valider</button>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -5,7 +5,11 @@
                 <i class="fas fa-times" style="margin-right: 0.5rem;"></i>Fermer
             </a>
         </div>   
-        <form>
+        <form action="updatephoto" method="get">
+            <!-- ajouter un champs invisible avec l'id -->
+            <div class="champs">
+                <input hidden class="input" type="text" name="idFromFront" value="<%= galerie.id %>" required>
+            </div>
             <div class="champs">
                 <input class="input" type="text" name="nameFromFront" value="<%= galerie.name %>" required>
             </div>

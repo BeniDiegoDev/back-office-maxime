@@ -24,6 +24,20 @@ h1:hover {
   cursor: default;
 }
 
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+h2:hover {
+  cursor: default;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
 p:hover {
   cursor: default;
 }
@@ -270,6 +284,7 @@ p:hover {
 .presentation {
   min-height: 90vh;
   margin-left: 12.5rem;
+  margin-top: 1rem;
   padding-bottom: 3.1rem;
   display: flex;
   flex-direction: column;
@@ -316,4 +331,30 @@ p:hover {
   color: black;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.contact {
+  min-height: 90vh;
+  margin-left: 12.5rem;
+  margin-top: 1rem;
+  padding-bottom: 3.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-list {
+  width: 70vw;
+  margin-top: 1rem;
+}
+
+.contact-title {
+  text-decoration: underline;
+}
+
+.contact-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.3rem;
 }

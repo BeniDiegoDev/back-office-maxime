@@ -7,7 +7,10 @@
             </a>
         </div>
         
-        <form>
+        <form action="updatepresentation" method="get">
+            <div class="champs">
+                <input hidden class="input" type="text" name="idFromFront" value="<%= presentation[0].id %>" required>
+            </div>
             <div class="champs">
                 <input class="input" type="text" name="photoFromFront" value="<%= presentation[0].photo %>" required>
             </div>
