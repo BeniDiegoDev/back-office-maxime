@@ -1,5 +1,5 @@
-let modalPresentation = document.getElementById("modalPresentation");
-let btnPresentation = document.getElementById("modalPresentationBtn");
+let modalPresentation = document.getElementById("modalpresentation");
+let btnPresentation = document.getElementById("modalpresentationbtn");
 let spanPresentation = document.getElementsByClassName("closebtn")[0];
 
 btnPresentation.onclick = function() {
