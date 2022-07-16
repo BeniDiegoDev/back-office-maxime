@@ -7,7 +7,16 @@
         </div>   
         <form>
             <div class="champs">
-                <input class="input" type="text" name="miniaturesFromFront" placeholder="Url de la miniature" required>
+                <input class="input" type="text" name="nameFromFront" value="<%= galerie.name %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="categorieFromFront" value="<%= galerie.categorie %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="imgFromFront" value="<%= galerie.img %>" required>
+            </div>
+            <div class="champs">
+                <input class="input" type="text" name="miniaturesFromFront" value="<%= galerie.miniatures %>" required>
             </div>
             <div class="champs">
                 <button class="btn" type="submit">Valider</button>
