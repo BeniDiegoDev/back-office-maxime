@@ -17,7 +17,6 @@ let spanEdit = document.getElementsByClassName("closebtn");
 for (let i = 0; i < btnEdit.length; i++) {
   btnEdit[i].onclick = function () {
     modalEdit[i].style.display = "block";
-    console.log(i);
   }
 }
 

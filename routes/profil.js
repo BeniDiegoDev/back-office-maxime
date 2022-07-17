@@ -63,6 +63,29 @@ router.post('/importprofil', async function (req, res, next) {
   res.json({ adminSave });
 });
 
+router.get('/recupprofil', async function (req, res, next) {
+
+  var profil = await userModel.findOne({
+    user: "admin",
+  })
+
+  res.json({
+    profil: [
+      {
+        firstName: profil.firstName,
+        lastName: profil.lastName,
+        society: profil.society,
+        email: profil.email,
+        emailPro: profil.emailPro,
+        phoneNumber: profil.phoneNumber,
+        web: profil.web,
+        instagram: profil.instagram,
+        facebook: profil.facebook,
+      }
+    ]
+  })
+});
+
 router.post('/importphoto', async function (req, res, next) {
 
   var photos = [
