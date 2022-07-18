@@ -71,6 +71,17 @@ p:hover {
   margin-bottom: 1rem;
 }
 
+.label-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1rem;
+  margin-left: 5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
 .champs {
   display: flex;
   flex-direction: column;
@@ -79,9 +90,53 @@ p:hover {
   margin-bottom: 1rem;
 }
 
-.input {
-  width: 15rem;
+
+.input-log {
+  min-width: 20rem;
   height: 2rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.input {
+  width: 50vw;
+  height: 2rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.select {
+  width: 51vw;
+  height: 2rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.select option {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.area {
+  min-width: 50vw;
+  max-width: 50vw;
+  min-height: 5rem;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.1rem;
   font-weight: bold;
@@ -254,11 +309,11 @@ p:hover {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: white;
+  border-radius: 0.5rem;
   margin: 1rem auto;
   padding: 1rem;
-  border: 1px solid #6e6e6e;
-  width: 60%;
+  width: 65vw;
   display: flex;
   flex-direction: column;
 }

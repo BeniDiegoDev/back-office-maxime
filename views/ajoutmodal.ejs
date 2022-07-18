@@ -1,24 +1,33 @@
 <div id="modal" class="modal">
-    
+
     <div class="modal-content">
         <div class="btn-close">
             <a class="closebtn">
                 <i class="fas fa-times" style="margin-right: 0.5rem;"></i>Fermer
             </a>
         </div>
-        
+
         <form action="addphoto" method="post">
+            <label class="label-form">Nom de la photo :</label>
             <div class="champs">
                 <input class="input" type="text" name="nameFromFront" placeholder="Nom de la photo" required>
             </div>
+            <label class="label-form">Catégorie de la photo :</label>
             <div class="champs">
-                <input class="input" type="text" name="categorieFromFront" placeholder="Catégorie de la photo" required>
+                <select class="select" name="categorieFromFront" value={option.value} required>
+                    <option value="">Choisir une catégorie</option>
+                    <option value="Architectures">Architectures</option>
+                    <option value="Paysages">Paysages</option>
+                    <option value="Portraits">Portraits</option>
+                </select>
             </div>
+            <label class="label-form">Url de la photo :</label>
             <div class="champs">
-                <input class="input" type="text" name="imgFromFront" placeholder="Url de la photo" required>
+                <textarea class="area" name="imgFromFront" placeholder="Url de la photo" required></textarea>
             </div>
+            <label class="label-form">Url de la miniature :</label>
             <div class="champs">
-                <input class="input" type="text" name="miniaturesFromFront" placeholder="Url de la miniature" required>
+                <textarea class="area" name="miniaturesFromFront" placeholder="Url de la miniature" required></textarea>
             </div>
             <div class="champs">
                 <button class="btn" type="submit">Valider</button>

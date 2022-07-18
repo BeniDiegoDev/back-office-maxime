@@ -11,14 +11,17 @@
             <div class="champs">
                 <input hidden class="input" type="text" name="idFromFront" value="<%= presentation[0].id %>" required>
             </div>
+            <label class="label-form">Url de la photo :</label>
             <div class="champs">
-                <input class="input" type="text" name="photoFromFront" value="<%= presentation[0].photo %>" required>
+                <textarea class="area" name="photoFromFront" required><%= presentation[0].photo %></textarea>
             </div>
+            <label class="label-form">Texte de présentation :</label>
             <div class="champs">
-                <input class="input" type="text" name="presentationFromFront" value="<%= presentation[0].presentation %>" required>
+                <textarea class="area" name="presentationFromFront" required><%= presentation[0].presentation %></textarea>
             </div>
+            <label class="label-form">Texte de la description :</label>
             <div class="champs">
-                <input class="input" type="text" name="descriptionFromFront" value="<%= presentation[0].description %>" required>
+                <textarea class="area" name="descriptionFromFront" required><%= presentation[0].description %></textarea>
             </div>
             <div class="champs">
                 <button class="btn" type="submit">Valider</button>

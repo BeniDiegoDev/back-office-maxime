@@ -4,23 +4,33 @@
             <a class="closebtn">
                 <i class="fas fa-times" style="margin-right: 0.5rem;"></i>Fermer
             </a>
-        </div>   
+        </div>
         <form action="updatephoto" method="get">
-            <!-- ajouter un champs invisible avec l'id -->
             <div class="champs">
                 <input hidden class="input" type="text" name="idFromFront" value="<%= galerie.id %>" required>
             </div>
+            <label class="label-form">Nom de la photo :</label>
             <div class="champs">
                 <input class="input" type="text" name="nameFromFront" value="<%= galerie.name %>" required>
             </div>
+            <label class="label-form">Catégorie de la photo :</label>
             <div class="champs">
-                <input class="input" type="text" name="categorieFromFront" value="<%= galerie.categorie %>" required>
+                <select class="select" name="categorieFromFront" value={option.value} required>
+                    <option value="<%= galerie.categorie %>">
+                        <%= galerie.categorie %> (Catégorie actuelle)
+                    </option>
+                    <option value="Architectures">Architectures</option>
+                    <option value="Paysages">Paysages</option>
+                    <option value="Portraits">Portraits</option>
+                </select>
             </div>
+            <label class="label-form">Url de la photo :</label>
             <div class="champs">
-                <input class="input" type="text" name="imgFromFront" value="<%= galerie.img %>" required>
+                <textarea class="area" name="imgFromFront" required><%= galerie.img %></textarea>
             </div>
+            <label class="label-form">Url de la miniature :</label>
             <div class="champs">
-                <input class="input" type="text" name="miniaturesFromFront" value="<%= galerie.miniatures %>" required>
+                <textarea class="area" name="miniaturesFromFront" required><%= galerie.miniatures %></textarea>
             </div>
             <div class="champs">
                 <button class="btn" type="submit">Valider</button>

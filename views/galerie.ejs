@@ -11,46 +11,46 @@
 </head>
 
 <body>
-    <%- include('ajoutmodal'); %>    
-    <%- include('header'); %>
-        <main>
-            <div class="galerie">
-                <div class="add-galerie">
-                    <h1>Gestion de la galerie</h1>
-                    <a class="galerie-tool" id="modalBtn">
-                        <i class="fas fa-plus" style="margin-right: 0.5rem;"></i>Ajouter une photo à la galerie
-                    </a>
+    <%- include('ajoutmodal'); %>
+        <%- include('header'); %>
+            <main>
+                <div class="galerie">
+                    <div class="add-galerie">
+                        <h1>Gestion de la galerie</h1>
+                        <a class="galerie-tool" id="modalBtn">
+                            <i class="fas fa-plus" style="margin-right: 0.5rem;"></i>Ajouter une photo à la galerie
+                        </a>
+                    </div>
+                    <div class="galerie-items">
+                        <% for (let i=0; i<galerie.length; i++) { %>
+                            <%- include('editmodal', {galerie: galerie[i]}); %>
+                                <div class="galerie-item">
+                                    <img class="galerie-image" src="<%= galerie[i].miniatures %>"
+                                        alt="<%= galerie[i].name %>" />
+                                    <div class="galerie-infos">
+                                        <p class="galerie-text">
+                                            Catégorie : <%= galerie[i].categorie %>
+                                        </p>
+                                        <p class="galerie-text">
+                                            Nom : <%= galerie[i].name %>
+                                        </p>
+                                    </div>
+                                    <div class="galerie-tools">
+                                        <a class="galerie-tool modaleditbtn">
+                                            <!-- <%= i %> -->
+                                            <i class="fas fa-edit" style="margin-right: 0.5rem;"></i>Editer
+                                        </a>
+                                        <a class="galerie-tool" href="/deletephoto?id=<%=galerie[i].id%>">
+                                            <i class="fas fa-times" style="margin-right: 0.5rem;"></i>Supprimer
+                                        </a>
+                                    </div>
+                                </div>
+                                <% } %>
+                    </div>
                 </div>
-                <div class="galerie-items">
-                    <% for (let i=0; i<galerie.length; i++) { %>
-                        <%- include('editmodal', {galerie: galerie[i]}); %>
-                        <div class="galerie-item">
-                            <img class="galerie-image" src="<%= galerie[i].miniatures %>"
-                                alt="<%= galerie[i].name %>" />
-                            <div class="galerie-infos">
-                                <p class="galerie-text">
-                                    Catégorie : <%= galerie[i].categorie %>
-                                </p>
-                                <p class="galerie-text">
-                                    Nom : <%= galerie[i].name %>
-                                </p>
-                            </div>
-                            <div class="galerie-tools">
-                                <a class="galerie-tool modaleditbtn">
-                                    <!-- <%= i %> -->
-                                    <i class="fas fa-edit" style="margin-right: 0.5rem;"></i>Editer
-                                </a>
-                                <a class="galerie-tool" href="/deletephoto?id=<%=galerie[i].id%>">
-                                    <i class="fas fa-times" style="margin-right: 0.5rem;"></i>Supprimer
-                                </a>
-                            </div>
-                        </div>
-                        <% } %>
-                </div>
-            </div>
-        </main>
-        <%- include('footer'); %>
-        <script src="../javascripts/modalgalerie.js"></script>
+            </main>
+            <%- include('footer'); %>
+                <script src="../javascripts/modalgalerie.js"></script>
 </body>
 
 </html>
