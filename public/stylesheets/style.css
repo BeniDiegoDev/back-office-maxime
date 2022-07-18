@@ -82,6 +82,17 @@ p:hover {
   font-weight: bold;
 }
 
+.label-form-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
 .champs {
   display: flex;
   flex-direction: column;

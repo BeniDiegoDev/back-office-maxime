@@ -45,7 +45,7 @@ router.get('/updatepresentation', async function (req, res, next) {
     }, {
       photo: req.query.photoFromFront,
       presentation: req.query.presentationFromFront,
-      description: req.query.descriptionFromFront,      
+      description: req.query.descriptionFromFront,
     });
 
   };
@@ -66,25 +66,25 @@ router.get('/galerie', async function (req, res, next) {
 
 /* ROUTE ADD PHOTO GALERIE */
 router.post('/addphoto', async function (req, res, next) {
-  
-    var searchPhoto = await photoModel.findOne({
+
+  var searchPhoto = await photoModel.findOne({
+    name: req.body.nameFromFront,
+  })
+
+  if (!searchPhoto) {
+    var newPhoto = new photoModel({
       name: req.body.nameFromFront,
+      categorie: req.body.categorieFromFront,
+      img: req.body.imgFromFront,
+      miniatures: req.body.miniaturesFromFront,
     })
 
-    if (!searchPhoto) {
-      var newPhoto = new photoModel({
-        name: req.body.nameFromFront,
-        categorie: req.body.categorieFromFront,
-        img: req.body.imgFromFront,
-        miniatures: req.body.miniaturesFromFront,
-      })
+    await newPhoto.save();
 
-      await newPhoto.save();
+    res.redirect('/galerie');
+  } else {
 
-      res.redirect('/galerie');
-    } else {
-      
-    }
+  }
 });
 
 /* ROUTE DELETE PHOTO GALERIE */
@@ -121,7 +121,7 @@ router.get('/contact', async function (req, res, next) {
   if (req.session.user == null) {
     res.redirect('/');
   } else {
-    
+
     var user = await userModel.findOne({
       user: "admin",
     })
@@ -147,12 +147,57 @@ router.get('/updatecontact', async function (req, res, next) {
       web: req.query.webFromFront,
       instagram: req.query.instagramFromFront,
       facebook: req.query.facebookFromFront,
-      
+
     });
 
   };
 
   res.redirect('/contact');
+});
+
+/* ROUTE GET COMPTE */
+router.get('/compte', async function (req, res, next) {
+  if (req.session.user == null) {
+    res.redirect('/');
+  } else {
+
+    var user = await userModel.findOne(req.session.user);
+
+    res.render('compte', { user });
+  }
+});
+
+
+router.get('/updatecompte', async function (req, res, next) {
+
+  var userId = req.query.idFromFront;
+  var password = req.query.passwordFromFront;
+  var passwordConfirm = req.query.passwordConfirmFromFront;
+  var newPassword = req.query.newPasswordFromFront;
+  var newPasswordConfirm = req.query.newPasswordConfirmFromFront;
+
+  var user = await userModel.findOne({ _id: userId });
+
+  if (user) {
+    if (bcrypt.compareSync(passwordConfirm, user.password) && bcrypt.compareSync(password, user.password)) {
+      if (newPassword == newPasswordConfirm) {
+        await userModel.updateOne({
+          _id: userId,
+        }, {
+          password: bcrypt.hashSync(newPassword, 10),
+        });
+        console.log("Mot de passe mis a jour");
+      } else {
+        console.log("Nouveau mot de passe ne concordonne pas");
+      }
+      console.log("Ancien mot de passe OK");
+      res.redirect('/compte');
+    } else {
+      console.log("Ancien mot de passe Erreur");
+      res.redirect('/compte')
+    }
+  }
+
 });
 
 module.exports = router;

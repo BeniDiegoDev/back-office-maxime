@@ -1,0 +1,37 @@
+<div id="modalCompte" class="modal">
+    
+    <div class="modal-content">
+        <div class="btn-close">
+            <a class="closebtn">
+                <i class="fas fa-times" style="margin-right: 0.5rem;"></i>Fermer
+            </a>
+        </div>
+        
+        <form action="updatecompte" method="get">
+            <div class="champs">
+                <input hidden class="input" type="text" name="idFromFront" value="<%= user.id %>" required>
+            </div>
+            <label class="label-form-center">Changer mon mot de passe</label>
+            <label class="label-form">Ancien mot de passe :</label>
+            <div class="champs">
+                <input class="input" type="password" name="passwordFromFront" required>
+            </div>
+            <label class="label-form">Confirmer l'ancien mot de passe :</label>
+            <div class="champs">
+                <input class="input" type="password" name="passwordConfirmFromFront" required>
+            </div>
+            <label class="label-form">Nouveau mot de passe :</label>
+            <div class="champs">
+                <input class="input" type="password" name="newPasswordFromFront" required>
+            </div>
+            <label class="label-form">Confirmer nouveau mot de passe :</label>
+            <div class="champs">
+                <input class="input" type="password" name="newPasswordConfirmFromFront" required>
+            </div>
+            <div class="champs">
+                <button class="btn" type="submit">Valider</button>
+            </div>
+        </form>
+    </div>
+
+</div>

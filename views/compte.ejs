@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back Office du Portfolio de Maxime Turpault</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://kit.fontawesome.com/a41e9403cf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <%- include('header'); %>
+        <main>
+            <div class="contact">
+                <h2>Gestion de mon compte</h2>
+                <div class="contact-list">
+                    <div class="contact-text">
+                        <p class="contact-title">Prénom :</p>
+                        <%= user.firstName %>
+                    </div>
+                    <div class="contact-text">
+                        <p class="contact-title">Nom :</p>
+                        <%= user.lastName %>
+                    </div>
+                    <div class="contact-text">
+                        <p class="contact-title">Mot de passe :</p>
+                        **********
+                    </div>
+                </div>
+                <div class="presentation-tools">
+                    <%- include('comptemodal'); %>
+                    <a class="presentation-tool" id="modalCompteBtn">
+                        <i class="fas fa-edit" style="margin-right: 0.5rem;"></i>Changer mon mot de passe
+                    </a>
+                </div>
+            </div>
+        </main>
+        <%- include('footer'); %>
+        <script src="../javascripts/modalcompte.js"></script>
+    </body>
+
+</html>
