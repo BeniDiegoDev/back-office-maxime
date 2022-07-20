@@ -19,9 +19,9 @@
                     <option value="<%= galerie.categorie %>">
                         <%= galerie.categorie %> (Catégorie actuelle)
                     </option>
-                    <option value="Architectures">Architectures</option>
-                    <option value="Paysages">Paysages</option>
-                    <option value="Portraits">Portraits</option>
+                    <% for (let i=0; i<categorieUnique.length; i++) { %>
+                        <option value="<%= categorieUnique[i] %>"><%= categorieUnique[i] %></option>
+                    <% } %>
                 </select>
             </div>
             <label class="label-form">Url de la photo :</label>

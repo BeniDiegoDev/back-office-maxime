@@ -99,10 +99,9 @@ router.post('/addphoto', async function (req, res, next) {
     })
     await newPhoto.save();
   } 
-
     res.redirect('/galerie');
   } else {
-
+    
   }
 });
 
