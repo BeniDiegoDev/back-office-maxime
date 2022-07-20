@@ -164,4 +164,18 @@ router.get('/recuppresentation', async function (req, res, next) {
   res.json({ presentation })
 });
 
+router.get('/recupcategorie', async function (req, res, next) {
+
+  var galerie = await photoModel.find();
+
+  var categories = galerie.map(function (item) {
+    return item.categorie;
+  }
+  );
+
+  var categorie = [...new Set(categories)];
+
+  res.json({ categorie })
+});
+
 module.exports = router;
