@@ -60,7 +60,14 @@ router.get('/galerie', async function (req, res, next) {
   } else {
     var galerie = await photoModel.find();
 
-    res.render('galerie', { galerie });
+    var categories = galerie.map(function (item) {
+      return item.categorie;
+    }
+    );
+
+    var categorieUnique = [...new Set(categories)];
+
+    res.render('galerie', { galerie, categorieUnique });
   }
 });
 
@@ -72,14 +79,26 @@ router.post('/addphoto', async function (req, res, next) {
   })
 
   if (!searchPhoto) {
+
+    if (req.body.categorieFromFront == "" && req.body.newCategorieFromFront == "") {
+      console.log("categorie non existante, creation vide")
+    } else if (req.body.categorieFromFront == "" && req.body.newCategorieFromFront != "") {
+    var newPhoto = new photoModel({
+      name: req.body.nameFromFront,
+      categorie: req.body.newCategorieFromFront,
+      img: req.body.imgFromFront,
+      miniatures: req.body.miniaturesFromFront,
+    })
+    await newPhoto.save();
+  } else if (req.body.categorieFromFront != "") {
     var newPhoto = new photoModel({
       name: req.body.nameFromFront,
       categorie: req.body.categorieFromFront,
       img: req.body.imgFromFront,
       miniatures: req.body.miniaturesFromFront,
     })
-
     await newPhoto.save();
+  } 
 
     res.redirect('/galerie');
   } else {

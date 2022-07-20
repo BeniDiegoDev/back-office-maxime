@@ -417,6 +417,8 @@ p:hover {
 
 .contact-title {
   text-decoration: underline;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .contact-text {

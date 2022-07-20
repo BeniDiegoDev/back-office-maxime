@@ -14,12 +14,16 @@
             </div>
             <label class="label-form">Catégorie de la photo :</label>
             <div class="champs">
-                <select class="select" name="categorieFromFront" value={option.value} required>
-                    <option value="">Choisir une catégorie</option>
-                    <option value="Architectures">Architectures</option>
-                    <option value="Paysages">Paysages</option>
-                    <option value="Portraits">Portraits</option>
+                <select class="select" name="categorieFromFront" value={option.value}>
+                    <option value="">Choisir une categorie</option>
+                    <% for (let i=0; i<categorieUnique.length; i++) { %>
+                        <option value="<%= categorieUnique[i] %>"><%= categorieUnique[i] %></option>
+                    <% } %>
                 </select>
+            </div>
+            <label class="label-form">Ajouter une nouvelle catégorie :</label>
+            <div class="champs">
+                <input class="input" type="text" name="newCategorieFromFront" placeholder="Nouvelle catégorie"></input>
             </div>
             <label class="label-form">Url de la photo :</label>
             <div class="champs">
